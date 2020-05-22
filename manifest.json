@@ -2,7 +2,7 @@
     "name": "Recisee",
     "version": "0.0.0.1",
     "description": "Get only what you want out of a recipe page",
-    "permissions": ["activeTab"],
+    "permissions": ["<all_urls>","activeTab"],
     "page_action": {
       "default_popup": "popup.html",
       "default_icon": {
@@ -14,7 +14,7 @@
     },
     "content_scripts": [
       {
-        "matches": ["http://*/*"],
+        "matches": ["<all_urls>"],
         "js": ["jquery-3.5.1.min.js", "strip.js"]
       }
     ],
@@ -24,7 +24,7 @@
       "48": "images/rc48.png",
       "128": "images/rc128.png"
     },
-    "web_accessible_resources": ["jquery-3.5.1.min.js", "clean.js"],
+    "web_accessible_resources": ["jquery-3.5.1.min.js"],
     "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
     "manifest_version": 2
 }
