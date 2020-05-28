@@ -60,8 +60,6 @@ $(function() {
             }
         }
         str = str.replace(/\<li/g, '<li style="display:list;white-space:nowrap;" ');
-        //str = str.replace(/<div/g, '<div style="display:inline;"');
-        //str = str.replace(/<span/g, '<span style="display:inline;"');
         str = str.replace(/<button/g, '<button style="display:hidden;"');
         str = str.replace(/Save \$/g, '<br><br>');
         return str;
@@ -101,8 +99,11 @@ $(function() {
             for(var i = 1; i < fields.length; i++) {
                 var str2 = fields[i];
                 var strTest = str2.toString();
-                if( strTest.includes("alt") && strTest.includes("epper")) {
-                    str += fields[i];
+                for(var j = 0; j<cleanArray.length;j++){
+                    if (strTest.includes(cleanArray[j])) {
+                        str += fields[i];
+                        break;
+                    }
                 }
             }
         }
@@ -255,7 +256,7 @@ $(function() {
                 return $(this).html();
             });
             ingr = JSON.stringify(ingr);
-            ingr = clean(ingr);
+            ingr = cleanIngr(ingr);
             if(ingr.substr(7, 10) === "prevObject"){
                 continue;
             }
@@ -269,7 +270,7 @@ $(function() {
                     return $(this).html();
                 });
                 ingr = JSON.stringify(ingr);
-                ingr = clean(ingr);
+                ingr = cleanIngr(ingr);
                 if(ingr.substr(7, 10) === "prevObject"){
                     continue;
                 }
