@@ -2,8 +2,8 @@
     "name": "Recisee",
     "version": "0.0.0.1",
     "description": "Get only what you want out of a recipe page",
-    "permissions": ["<all_urls>","activeTab"],
-    "page_action": {
+    "permissions": ["activeTab"],
+    "browser_action": {
       "default_popup": "popup.html",
       "default_icon": {
         "16": "images/rc16.png",
@@ -15,7 +15,7 @@
     "content_scripts": [
       {
         "matches": ["<all_urls>"],
-        "js": ["jquery-3.5.1.min.js", "strip.js"]
+        "js": ["jquery-3.5.1.min.js"]
       }
     ],
     "icons": {
