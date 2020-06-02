@@ -7,11 +7,9 @@ checkPageButton.addEventListener("click", function() {
     file: 'jquery-3.5.1.min.js'
   });
   chrome.tabs.executeScript({
+    file: 'clean.js'  //Get the content on the current page
+  });
+  chrome.tabs.executeScript({
     file: 'strip.js'  //Get the content on the current page
   });
-  /*
-  chrome.tabs.executeScript(tab.ib, {
-    file: 'clean.js'  //serves as a psuedo module as modules are not allowed on content scripts
-  });
-  */
 }, false);
